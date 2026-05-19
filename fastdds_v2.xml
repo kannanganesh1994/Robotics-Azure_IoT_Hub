@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<profiles>
+  <participant profile_name="default">
+    <rtps>
+      <builtin>
+        <initialPeersList>
+          <locator>
+            <udpv4>
+              <address>192.168.123.18</address>
+              <port>7400</port>
+            </udpv4>
+          </locator>
+        </initialPeersList>
+      </builtin>
+    </rtps>
+  </participant>
+</profiles>
