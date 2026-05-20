@@ -33,20 +33,16 @@ class Go2CameraViewer(Node):
             frames = self.codec.decode(packet)
 
             for frame in frames:
-                try:
-                    # ✅ Correct conversion (fix green issue)
-                    rgb = frame.to_ndarray(format='rgb24')
-                    img = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
-
-                    h, w, _ = img.shape
-
-                    # ✅ filter invalid frames
-                    if h > 100 and w > 100:
-                        cv2.imshow("Go2 Camera", img)
-                        cv2.waitKey(1)
-
-                except Exception:
-                    pass
+            
+                # ✅ Skip non-keyframes initially
+                if not frame.key_frame:
+                    continue
+            
+                rgb = frame.to_ndarray(format='rgb24')
+                img = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
+            
+                cv2.imshow("Go2 Camera", img)
+                cv2.waitKey(1)
 
         except Exception:
             pass
