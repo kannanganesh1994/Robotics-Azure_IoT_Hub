@@ -1,0 +1,14 @@
+<CycloneDDS>
+  <Domain>
+    <General>
+      <NetworkInterfaceAddress>wlp0s20f3</NetworkInterfaceAddress>
+      <AllowMulticast>false</AllowMulticast>
+    </General>
+
+    <Discovery>
+      <Peers>
+        <Peer address="192.168.123.18"/>
+      </Peers>
+    </Discovery>
+  </Domain>
+</CycloneDDS>
